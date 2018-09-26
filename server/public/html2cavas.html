@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px;">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style type="text/css">
+     /*img{
+      width: 100px;
+      height: 200px;
+     }*/
+     body{
+      font-size: .14rem;  
+     }
+     #earsContainer{
+      /*width: 300px;*/
+      /*zoom: 0.5;*/
+      /*height: 100px;*/
+     }
+     #pic{
+      width: 10.5rem;
+      height:5.2rem;
+     }
+     canvas{
+       /*transform: scale(0.5);*/
+     }
+     /*.targetElem {width: 54px;height: 142px;margin-top:2px;margin-left:17px;transform: scale(0.5)}*/
+  </style>
+</head>
+<body>
+    <div id="earsContainer">
+        <h2>全球鹰</h2>
+        <img id='pic' src="/assets/2.jpg">
+    </div>
+    <button id="btn">下载</button>
+  <script type="text/javascript" src="./html2canvas.js"></script>
+  <script type="text/javascript">
+    var w = document.querySelector('#earsContainer').clientWidth ; //这是我们准备画的div
+    var h =  document.querySelector('#earsContainer').clientHeight ;
+    // console.log(w);
+    document.getElementById("btn").onclick=function(){
+      var canvas = document.createElement("canvas");
+      var scale = window.devicePixelRatio*2;
+      canvas.width = w * scale;
+      canvas.height = h * scale;
+      canvas.mozImageSmoothingEnabled = false;
+      canvas.webkitImageSmoothingEnabled = false;
+      canvas.msImageSmoothingEnabled = false;
+      canvas.imageSmoothingEnabled = false;
+      html2canvas(document.querySelector('#earsContainer'),{
+            onrendered:function(canvas){
+                  dataURL =canvas.toDataURL("image/png");
+                  var img=new Image();
+                  img.src=dataURL;
+                  img.width=canvas.width;
+                  img.height=canvas.height;
+                  img.style.zoom=0.5;
+                  document.body.appendChild(img);
+              },
+               // scale: scale,
+               canvas: canvas,
+               logging: true,
+               useCORS :true,
+               // width:w,
+               // height:h*scale
+       });
+
+
+
+
+
+
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

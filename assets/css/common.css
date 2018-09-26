@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'iconfont';
+  /* project id 326957 */
+  src: url("../fonts/iconfont.eot");
+  src: url("../fonts/iconfont.eot?#iefix") format("embedded-opentype"), url("../fonts/iconfont.woff") format("woff"), url("../fonts/iconfont.ttf") format("truetype"), url("../fonts/iconfont.svg#iconfont") format("svg");
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: "微软雅黑", HelveticaNeue-Light, 'Helvetica Neue Light', 'Microsoft YaHei', sans-serif, 'iconfont';
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+em {
+  font-style: normal;
+  display: inline-block;
+}
+
+:focus {
+  outline: 1;
+}
+
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+}
+
+.clearfix2 {
+  clear: both;
+}
+
+.w230 {
+  width: 230px !important;
+}
+
+.w770 {
+  width: 770px !important;
+}
+
+
+/*这里是使用绝对定位*/
+#app{
+  position: relative;
+}
+.pos{
+  position: absolute;
+  top:0;
+  left:0;
+  background: #FFF;
+  width: 100%;
+}
+[v-cloak] {
+  visibility:hidden;
+}
+/**/
+
+#nprogress .bar {
+  background: #FFF !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #FFF, 0 0 5px #FFF !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #FFF !important;
+  border-left-color: #FFF !important;
+}
+
+input::-webkit-input-placeholder{
+  color:#ccc;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+  color:#ccc;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+  color:#ccc;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+  color:#ccc;
+}
+
+.router{
+  width: 100%;
+}
+
+body{
+  font-size: 40px;
+}
+
+.wrap {
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FFF;
+  height: 100vh;
+  width: 100%;
+}
+
+.router{
+    background: #FFF;
+      height: 100vh;
+}
+.turn-in-enter,.turn-out-leave-to  {
+  transform: translate3d(100%, 0, 0);
+  opacity: 0;
+}
+
+.turn-in-enter-active,
+.turn-in-leave-active,
+.turn-out-enter-active,
+.turn-out-leave-active {
+  transition: transform .3s ;
+}
+
+.turn-out-leave-active {
+    z-index: 2;
+}
