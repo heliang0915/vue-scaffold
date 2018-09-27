@@ -2,19 +2,16 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import {env, cacheTime} from '../config';
-import api from './router/api';
+import {env, cacheTime,conf} from '../config';
 import upload from './router/upload';
 import auth from './router/auth';
-// import {useLog,fileLog} from './logs/logs';
 import index from './router/';
 import fs from 'fs';
 import {useLog, fileLog} from './logs/logs';
 import compression from 'compression';
 import userQuery from './query/userQuery';
+import proxy from 'http-proxy-middleware';//引入代理中间件
 
-
-// console.log("ip##########"+helper);
 let app = express();
 //日志配置
 useLog(app);
@@ -35,7 +32,17 @@ app.use((req, res, next) => {
   next();
 })
 app.use('/assets', express.static(path.join(__dirname, '/../server/public/')));
-app.use("/api/", api);
+//API映射代理 middlewares
+var apiProxy = proxy('/api', {
+  logLevel:env=="development"?"debug":"info",
+  target: conf.api,
+  changeOrigin: true,
+  // 重写路径 将 /api -> target网址的 '/'路径
+  pathRewrite: {
+    '^/api/': '/'
+  }
+});
+app.use(apiProxy);
 app.use("/upload", upload);
 app.use("/auth", auth);
 //读取cookie 判断权限
@@ -79,14 +86,4 @@ app.use(function(err, req, res, next) {
     })
   }
 });
-if (env != "development") {
-  app.use(express.static(path.join(__dirname, "/../build/" + env)));
-  app.use(express.static(path.join(__dirname, "/../build/server")));
-  console.log("生产状态：静态目录地址===" + path.join(__dirname, "/../build/" + env));
-} else {
-  app.use(express.static(path.join(__dirname, "/../build/" + env)));
-  app.use(express.static(path.join(__dirname, "/../build/dev_server")));
-  console.log("开发状态：静态目录地址===" + path.join(__dirname, "/../build/" + env));
-
-}
 export default app;

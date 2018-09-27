@@ -8,19 +8,20 @@ let NProgress = require('nprogress');
 NProgress.configure({showSpinner: false});
 //请求前拦截
 axios.interceptors.request.use(function (config) {
-    console.log('请求前...'+isServer);
+
     if(!isServer){
+      console.log('请求前...');
+      // console.log(NProgress);
         NProgress.start();
     }
-    // console.log(config)
     return config;
 }, function (error) {
     return Promise.reject(error);
 })
 // //响应前拦截
 axios.interceptors.response.use(function (response) {
-    console.log('响应前...');
     if(!isServer){
+        console.log('响应前...');
         NProgress.done();
     }
     return response;

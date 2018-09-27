@@ -53,7 +53,7 @@ export default function(url,req,type,para){
     if(req){
         method=req.method;
         //将tooken放入头部
-        console.log("$$$$$$$$$$$$$$$$$$"+JSON.stringify(req.originalUrl));
+        // console.log("$$$$$$$$$$$$$$$$$$"+JSON.stringify(req.originalUrl));
         if(req.cookies.token){
             instance.defaults.headers.common['token'] = req.cookies.token;
         }

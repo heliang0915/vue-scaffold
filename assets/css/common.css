@@ -144,7 +144,7 @@ ul {
 /**/
 
 #nprogress .bar {
-  background: #FFF !important;
+  background: red !important;
 }
 
 #nprogress .peg {
@@ -152,8 +152,8 @@ ul {
 }
 
 #nprogress .spinner-icon {
-  border-top-color: #FFF !important;
-  border-left-color: #FFF !important;
+  /* border-top-color: #FFF !important;
+  border-left-color: #FFF !important; */
 }
 
 input::-webkit-input-placeholder{

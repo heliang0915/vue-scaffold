@@ -7,6 +7,7 @@
 </template>
 <script>
 import "../assets/css/common.css"
+import "nprogress/nprogress.css"
 export default {
   name: 'App',
   data() {

@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getIndexList: 'fetchIndexList'
+      // getIndexList: 'fetchIndexList'
     })
   },
   computed: {
@@ -30,13 +30,18 @@ export default {
       state: "getIndexList"
     })
   },
+  asyncData(obj){
+     let store=obj.store==null?obj:obj.store;
+     store.dispatch('fetchIndexList');
+     // console.log("asyncData...........");
+  },
   mounted() {
     this.getIndexList();
-    // console.log(this);
+
   }
 }
 </script>
-<style scoped>
+<style>
 body {
   font-style: italic;
   background: #FFF;
