@@ -44,4 +44,5 @@ let Fetch = {
         return axios.post(`${url}`, params, this.parseConfig(config));
     }
 }
+
 export default Fetch;
