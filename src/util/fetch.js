@@ -8,7 +8,6 @@ let NProgress = require('nprogress');
 NProgress.configure({showSpinner: false});
 //请求前拦截
 axios.interceptors.request.use(function (config) {
-
     if(!isServer){
       console.log('请求前...');
       // console.log(NProgress);
@@ -41,7 +40,7 @@ let Fetch = {
     },
     post(url, params, config){
         url=url.indexOf('?')>-1?`${url}&temp=${Math.random()}`:`${url}?temp=${Math.random()}`
-        console.log(`%c Fetch POST URL =>${url} params:${JSON.stringify(params)}`, `color:#409EFF`);
+        console.log(`%c Fetch POST URL => ${url} params:${JSON.stringify(params)}`, `color:#409EFF`);
         return axios.post(`${url}`, params, this.parseConfig(config));
     }
 }

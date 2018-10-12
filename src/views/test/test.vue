@@ -10,7 +10,7 @@ export default {
 }
 </script>
 <style>
-  body{
-    background: #FFF;
+  .wrap{
+    background:red !important;
   }
 </style>
